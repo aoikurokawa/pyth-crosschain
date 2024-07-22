@@ -1,14 +1,17 @@
+#![feature(never_type)]
+#![feature(btree_cursors)]
+
 use {
     lazy_static::lazy_static,
     tokio::sync::watch,
 };
 
-mod api;
-mod config;
-mod metrics_server;
-mod network;
-mod serde;
-mod state;
+pub mod api;
+pub mod config;
+pub mod metrics_server;
+pub mod network;
+pub mod serde;
+pub mod state;
 
 lazy_static! {
     /// A static exit flag to indicate to running threads that we're shutting down. This is used to

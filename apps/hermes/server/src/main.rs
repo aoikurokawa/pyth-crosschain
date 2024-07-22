@@ -8,20 +8,17 @@ use {
         Parser,
     },
     futures::future::join_all,
-    lazy_static::lazy_static,
-    std::io::IsTerminal,
-    tokio::{
-        spawn,
-        sync::watch,
+    hermes::{
+        api,
+        config,
+        metrics_server,
+        network,
+        state,
+        EXIT,
     },
+    std::io::IsTerminal,
+    tokio::spawn,
 };
-
-mod api;
-mod config;
-mod metrics_server;
-mod network;
-mod serde;
-mod state;
 
 /// Initialize the Application. This can be invoked either by real main, or by the Geyser plugin.
 #[tracing::instrument]
